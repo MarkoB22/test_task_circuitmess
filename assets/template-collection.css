@@ -73,8 +73,33 @@
     padding: 0 1.5rem;
     max-width: none;
   }
+
+  .collection__title {
+    width: calc(var(--page-width)/2);
+    margin: 0 auto;
+    text-align: center;
+  }
 }
 
-.collection__view-all a:not(.link) {
-  margin-top: 1rem;
+.collection-show_more {
+  margin-top: 3rem;
+}
+
+.collection-show_more .button {
+  background: #e83f53;
+  padding: 1.5rem 2rem;
+  border: none;
+  border-radius: 30px;
+  font-family: "Poppins-Medium";
+}
+
+.collection-show_more .button:hover {
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 0px 10px 8px #00000042;
+  transform: scale(1.05);
+} 
+
+.collection-show_more .button:before,
+.collection-show_more .button:after {
+  box-shadow: none !important;
 }

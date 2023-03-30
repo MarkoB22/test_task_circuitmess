@@ -3,6 +3,10 @@
   height: 100%;
   position: relative;
   text-decoration: none;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0px 0px 10px 8px #00000042;
+  min-height: 75vh;
 }
 
 .card {
@@ -65,7 +69,6 @@
   overflow: hidden;
   /* Fix for Safari border bug on hover */
   z-index: 0;
-  border-radius: calc(var(--border-radius) - var(--border-width) - var(--image-padding));
 }
 
 .card--card .card__inner .card__media {
@@ -111,8 +114,9 @@
 }
 
 .card__content {
-  display: grid;
-  grid-template-rows: minmax(0,1fr) max-content minmax(0,1fr);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 1rem;
   width: 100%;
   flex-grow: 1;
@@ -124,17 +128,43 @@
 
 .card__information {
   grid-row-start: 2;
-  padding: 1.3rem 1rem;
 }
 
 .card:not(.ratio) > .card__content {
   grid-template-rows: max-content minmax(0,1fr) max-content auto;
 }
 
+.product_card-bottom_wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 1rem;
+  font-family: "Poppins-Medium";
+}
+
+.product_card-shop_now {
+  padding: 1.5rem 1.8rem;
+  border-radius: 30px;
+  color: white;
+}
+
+.product_card-minimum_age {
+  padding: 0.8rem 1rem;
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+}
+
 @media screen and (min-width: 750px) {
-  .card__information {
-    padding-bottom: 1.7rem;
-    padding-top: 1.7rem;
+  .card__content {
+    padding-bottom: 3rem;
+    padding-top: 3rem;
+  }
+
+  .card-wrapper:hover .product_card-shop_now {
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 0px 10px 8px #00000042;
+    transform: scale(1.05);
   }
 }
 
@@ -278,12 +308,13 @@
 }
 
 .card--standard > .card__content {
-  padding: 0;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 
-.card--standard > .card__content .card__information {
-  padding-left: 0;
-  padding-right: 0;
+.card--standard > .card__content {
+  padding-left: 3rem;
+  padding-right: 3rem;
 }
 
 .card--card.card--media .card__inner .card__information,
@@ -347,7 +378,7 @@
 .card-information
   > *:not(.visually-hidden:first-child)
   + *:not(.rating) {
-  margin-top: 0.7rem;
+  margin-top: 1rem;
 }
 
 .card-information .caption {

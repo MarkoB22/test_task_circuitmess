@@ -116,16 +116,36 @@ endif
     </slider-component>
 
     {%- if section.settings.show_view_all and more_in_collection -%}
-    <div class="center collection__view-all">
-      <a href="{{ section.settings.collection.url }}"
-        class="{% if section.settings.view_all_style == 'link' %}link underlined-link{% elsif section.settings.view_all_style == 'solid' %}button{% else %}button button--secondary{% endif %}"
+    <div class="center collection-show_more h4">
+      <div
+        class="show-more-btn {% if section.settings.view_all_style == 'link' %}link underlined-link{% elsif section.settings.view_all_style == 'solid' %}button{% else %}button button--secondary{% endif %}"
         aria-label="{{ 'sections.featured_collection.view_all_label' | t: collection_name: section.settings.collection.title }}">
         {{ 'sections.featured_collection.show_more' | t }}
-      </a>
+      </div>
     </div>
     {%- endif -%}
   </div>
 </div>
+
+<script>
+  var showMoreBtn = document.querySelector('.show-more-btn');
+  var productsWrapper = document.querySelector('.product-display');
+  var productCount = 3; // number of products to show at a time
+  var productOffset = productCount; // starting point for the next set of products
+
+  showMoreBtn.addEventListener('click', function () {
+    var url = '/products.json?limit=' + productCount + '&offset=' + productOffset;
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        data.products.forEach(function (product) {
+          // code to display each product
+          productsWrapper.innerHTML += '<h3>' + product.title + '</h3>';
+        });
+        productOffset += productCount; // update the starting point for the next set of products
+      });
+  });
+</script>
 
 {% schema %}
 {
@@ -305,7 +325,7 @@ endif
 },
 {
 "value": "rectangle",
-"label": "rectangle"
+"label": "t:sections.featured-collection.settings.image_ratio.options__4.label"
 }
 ],
 "default": "adapt",

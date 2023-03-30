@@ -315,7 +315,7 @@ body,
 .color-inverse,
 .color-accent-1,
 .color-accent-2 {
-  color: rgba(var(--color-foreground), 0.75);
+  color: rgba(var(--color-foreground));
   background-color: rgb(var(--color-background));
 }
 
@@ -400,28 +400,23 @@ body,
   font-weight: var(--font-body-weight);
 }
 
-@font-face {
-  font-family: "Poppins-Medium";
-  font-display: swap;
-  font-weight: 900;
-  src: url('{{ "Poppins-Medium.woff2" | asset_url }}') format("woff2"); }
-
 h1,
 h2,
 h3,
 h4,
 h5,
+h6,
 .h0,
 .h1,
 .h2,
 .h3,
 .h4,
-.h5 {
-  font-family: "Poppins-Medium";
+.h5,
+.h6 {
+  font-family: "Poppins-Bold";
   font-style: var(--font-heading-style);
   font-weight: var(--font-heading-weight);
   letter-spacing: calc(var(--font-heading-scale) * 0.06rem);
-  color: rgb(var(--color-foreground));
   line-height: calc(1 + 0.3 / max(1, var(--font-heading-scale)));
   word-break: break-word;
 }
@@ -484,7 +479,6 @@ h3,
 
 h4,
 .h4 {
-  font-family: var(--font-heading-family);
   font-style: var(--font-heading-style);
   font-size: calc(var(--font-heading-scale) * 1.5rem);
 }
@@ -503,9 +497,14 @@ h5,
 
 h6,
 .h6 {
-  color: rgba(var(--color-foreground), 0.75);
-  margin-block-start: 1.67em;
-  margin-block-end: 1.67em;
+  font-size: calc(var(--font-heading-scale) * 0.8rem);
+}
+
+@media only screen and (min-width: 750px) {
+  h6,
+  .h6 {
+    font-size: calc(var(--font-heading-scale) * 1rem);
+  }
 }
 
 blockquote {
@@ -1028,8 +1027,8 @@ summary::-webkit-details-marker {
 
 @media screen and (min-width: 750px) {
   .grid {
-    column-gap: var(--grid-desktop-horizontal-spacing);
-    row-gap: var(--grid-desktop-vertical-spacing);
+    column-gap: 30px;
+    row-gap: 30px;
   }
 }
 
@@ -1119,28 +1118,28 @@ summary::-webkit-details-marker {
 
 @media screen and (min-width: 990px) {
   .grid--6-col-desktop .grid__item {
-    width: calc(16.66% - var(--grid-desktop-horizontal-spacing) * 5 / 6);
-    max-width: calc(16.66% - var(--grid-desktop-horizontal-spacing) * 5 / 6);
+    width: calc(16.66% - 30px * 5 / 6);
+    max-width: calc(16.66% - 30px * 5 / 6);
   }
 
   .grid--5-col-desktop .grid__item {
-    width: calc(20% - var(--grid-desktop-horizontal-spacing) * 4 / 5);
-    max-width: calc(20% - var(--grid-desktop-horizontal-spacing) * 4 / 5);
+    width: calc(20% - 30px * 4 / 5);
+    max-width: calc(20% - 30px * 4 / 5);
   }
 
   .grid--4-col-desktop .grid__item {
-    width: calc(25% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
-    max-width: calc(25% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
+    width: calc(25% - 30px * 3 / 4);
+    max-width: calc(25% - 30px * 3 / 4);
   }
 
   .grid--3-col-desktop .grid__item {
-    width: calc(33.33% - var(--grid-desktop-horizontal-spacing) * 2 / 3);
-    max-width: calc(33.33% - var(--grid-desktop-horizontal-spacing) * 2 / 3);
+    width: calc(33.33% - 30px * 2 / 3);
+    max-width: calc(33.33% - 30px * 2 / 3);
   }
 
   .grid--2-col-desktop .grid__item {
-    width: calc(50% - var(--grid-desktop-horizontal-spacing) / 2);
-    max-width: calc(50% - var(--grid-desktop-horizontal-spacing) / 2);
+    width: calc(50% - 30px / 2);
+    max-width: calc(50% - 30px / 2);
   }
 }
 
@@ -2999,3 +2998,4 @@ details-disclosure > details {
     outline: transparent solid 1px;
   }
 }
+

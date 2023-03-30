@@ -697,7 +697,7 @@
           "label": "Enable \"View all\" if collection has more products than shown"
         },
         "view_all_style": {
-          "label": "\"View all\" style",
+          "label": "\"Show more\" style",
           "options__1": {
             "label": "Link"
           },
@@ -727,6 +727,9 @@
           },
           "options__3": {
             "label": "Square"
+          },
+          "options__4": {
+            "label": "Rectangle"
           }
         },
         "show_secondary_image": {
