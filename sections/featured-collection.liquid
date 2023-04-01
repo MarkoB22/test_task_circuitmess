@@ -156,10 +156,7 @@ endif
         method: 'GET',
       })
 
-        // This second fetch is a workaround Shopify populating same products on every second load
-        .then(fetch(nextPage, {
-          method: 'GET',
-        }))
+
         .then(response => response.text())
         .then(next_page => {
 
