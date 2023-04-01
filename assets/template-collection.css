@@ -73,12 +73,13 @@
     padding: 0 1.5rem;
     max-width: none;
   }
+}
 
-  .collection__title {
-    width: calc(var(--page-width)/2);
-    margin: 0 auto;
-    text-align: center;
-  }
+.collection__title {
+  width: calc(var(--page-width)/2);
+  margin: 0 auto;
+  text-align: center;
+  max-width: 100vw;
 }
 
 .collection-show_more {
@@ -99,7 +100,16 @@
   transform: scale(1.05);
 } 
 
+.collection-show_more .disabled.button:hover {
+  transform: none;
+  box-shadow: none;
+}
+
 .collection-show_more .button:before,
 .collection-show_more .button:after {
   box-shadow: none !important;
+}
+
+.featured-collection .pagination-wrapper {
+  display: none;
 }
