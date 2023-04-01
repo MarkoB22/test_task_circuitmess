@@ -155,7 +155,9 @@ endif
       fetch(nextPage, {
         method: 'GET',
       })
-
+        .then(fetch(nextPage, {
+          method: 'GET',
+        }))
 
         .then(response => response.text())
         .then(next_page => {
