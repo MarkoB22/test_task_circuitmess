@@ -8,7 +8,7 @@
         "description": "",
         "show_description": true,
         "description_style": "subtitle",
-        "collection": "all",
+        "collection": "frontpage",
         "products_to_show": 3,
         "columns_desktop": 3,
         "full_width": false,
