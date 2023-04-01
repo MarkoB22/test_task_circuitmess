@@ -138,7 +138,7 @@ endif
   const products_on_page = document.querySelector('.product-grid');
   const loader = document.querySelector('.loader');
 
-  // Initialize variables for the current page number and total number of pa ges
+  // Initialize variables for the current page number and total number of pages
   let nextPage = products_on_page.getAttribute('data-next-page');
   const productsCount = {{ section.settings.collection.products_count }};
   const totalPages = Math.ceil(productsCount / {{ perPage }});
